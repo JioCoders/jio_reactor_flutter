@@ -1,10 +1,10 @@
 # jio_reactor
 
-![Flutter CI](https://github.com/jiocoders/jio_reactor/actions/workflows/flutter-ci.yml/badge.svg)
+![Flutter CI](https://github.com/jiocoders/jio_reactor_flutter_flutter/actions/workflows/flutter-ci.yml/badge.svg)
 
 ## Description
 
-A Flutter plugin for both android, iOS and web which provides reactive widget.
+A Flutter plugin for android, iOS and web which provides reactive widget.
 
 ## Performance Metrics
 
@@ -20,11 +20,11 @@ https://pub.dev/packages/jio_reactor
 
 ## Usage
 
-[Example](https://github.com/JioCoders/jio_reactor/blob/main/example/lib/main.dart)
+[Example](https://github.com/jiocoders/jio_reactor_flutter/blob/main/example/lib/main.dart)
 
 To use this package :
 
-- add the dependency to your [pubspec.yaml](https://github.com/JioCoders/jio_reactor/blob/main/pubspec.yaml) file.
+- add the dependency to your [pubspec.yaml](https://github.com/jiocoders/jio_reactor_flutter/blob/main/pubspec.yaml) file.
 
 ```yaml
 dependencies:
@@ -117,7 +117,7 @@ class CounterController extends RexController<int> {
 ```
 
 [![Pub](https://img.shields.io/pub/v/jio_reactor.svg)](https://pub.dev/packages/jio_reactor)
-[![GitHub release](https://img.shields.io/github/release/jiocoders/jio_reactor.svg)](https://GitHub.com/jiocoders/jio_reactor/releases/)
+[![GitHub release](https://img.shields.io/github/release/jiocoders/jio_reactor.svg)](https://github.com/jiocoders/jio_reactor_flutter/releases/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # License
