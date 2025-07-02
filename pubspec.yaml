@@ -11,7 +11,7 @@ topics:
   - rxdart
 
 environment:
-  sdk: ^3.8.0-278.1.beta
+  sdk: ^3.8.1
   flutter: ">=1.17.0"
 
 dependencies:
