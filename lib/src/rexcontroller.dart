@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:rxdart/rxdart.dart';
 
 /// Base class to manage reactive state using RxDart
-abstract class RxStateController<T> {
+abstract class RexController<T> {
   final BehaviorSubject<T> _stateSubject;
 
   // The stream that emits the state changes
@@ -15,7 +15,8 @@ abstract class RxStateController<T> {
   Sink<T> get stateSink => _stateSubject.sink;
 
   // Constructor initializes the controller with an initial state
-  RxStateController(T initialState) : _stateSubject = BehaviorSubject<T>.seeded(initialState);
+  RexController(T initialState)
+    : _stateSubject = BehaviorSubject<T>.seeded(initialState);
 
   // Update the state
   void updateState(T newState) {

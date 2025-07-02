@@ -1,39 +1,149 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# jio_reactor
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+![Flutter CI](https://github.com/jiocoders/jio_reactor/actions/workflows/flutter-ci.yml/badge.svg)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Description
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Flutter plugin for both android, iOS and web which provides reactive widget.
 
-## Features
+## Performance Metrics
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **Build Status:** The current status of the CI build.
+- **Build Time:** Average build time for the CI.
 
-## Getting started
+## Getting Started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Published package url -
+```
+https://pub.dev/packages/jio_reactor
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+[Example](https://github.com/JioCoders/jio_reactor/blob/main/example/lib/main.dart)
 
-```dart
-const like = 'sample';
+To use this package :
+
+- add the dependency to your [pubspec.yaml](https://github.com/JioCoders/jio_reactor/blob/main/pubspec.yaml) file.
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  jio_reactor:
 ```
 
-## Additional information
+### How to use
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+import 'package:flutter/material.dart';
+import 'package:jio_reactor/jio_reactor.dart' show Reactive, RexController;
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: const ReactiveCounterView(),
+    );
+  }
+}
+
+class ReactiveCounterView extends StatelessWidget {
+  const ReactiveCounterView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Bind the CounterController using `RexController` or directly
+    final CounterController counterController = CounterController();
+
+    return Scaffold(
+      appBar: AppBar(title: Text('Reactive Counter')),
+      body: Center(
+        // Use `Reactive` widget to rebuild when the counter value changes
+        child: Reactive<int>(
+          stream: counterController.stateStream,
+          builder: (context, counter) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Counter: $counter', style: TextStyle(fontSize: 40)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: counterController.increment,
+                      child: Text('Increment'),
+                    ),
+                    SizedBox(width: 20),
+                    ElevatedButton(
+                      onPressed: counterController.decrement,
+                      child: Text('Decrement'),
+                    ),
+                  ],
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class CounterController extends RexController<int> {
+  CounterController() : super(0); // Initialize with a counter of 0
+
+  // Increment the counter value
+  void increment() {
+    updateState(state + 5);
+  }
+
+  // Decrement the counter value
+  void decrement() {
+    updateState(state - 5);
+  }
+}
+
+```
+
+[![Pub](https://img.shields.io/pub/v/jio_reactor.svg)](https://pub.dev/packages/jio_reactor)
+[![GitHub release](https://img.shields.io/github/release/jiocoders/jio_reactor.svg)](https://GitHub.com/jiocoders/jio_reactor/releases/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# License
+
+Copyright (c) 2024 Jiocoders
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Getting Started
+
+For help getting started with Flutter, view our online [documentation](https://flutter.io/).
+
+For help on editing package code, view the [documentation](https://flutter.io/developing-packages/).

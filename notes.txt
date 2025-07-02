@@ -1,2 +1,21 @@
 rm -r -v <directory_name>
 rm -rf <directory_name>
+---------------------------
+git push origin -d branch-name
+git branch --delete <branch-name>
+git pull --rebase origin main
+//----------------------------------------------
+export PATH=~/Documents/src/flutter/bin:$PATH
+//----------------------download module------------------------
+---------------------Webview.dart--------------------
+dart run build_runner build
+dart pub login
+dart pub logout
+https://github.com/JioCoders/jio_reactor.git
+dart pub token add https://some-package-repo.com/my-org/my-repo
+Enter secret token: <Type token on stdin>
+dart pub token add https://other-package-repo.com/ --env-var TOKEN_VAR
+Requests to "https://other-package-repo.com/" will now be authenticated using the secret token stored in the environment variable "TOKEN_VAR".
+dart pub token remove https://other-package-repo.com
+dart pub token remove --all
+---------------------.dart--------------------
