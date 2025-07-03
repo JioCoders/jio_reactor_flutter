@@ -1,6 +1,6 @@
 # jio_reactor
 
-![Flutter CI](https://github.com/jiocoders/jio_reactor/actions/workflows/flutter-ci.yml/badge.svg)
+![Flutter CI](https://github.com/jiocoders/jio_reactor_flutter/actions/workflows/flutter-ci.yml/badge.svg)
 
 ## Description(s)
 
