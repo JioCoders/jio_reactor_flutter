@@ -1,11 +1,12 @@
 name: jio_reactor
 description: "A Flutter package for android, iOS and web which provides reactive widget."
-version: 0.0.1
-homepage: https://github.com/JioCoders/jio_reactor.git
-repository: https://github.com/JioCoders/jio_reactor.git
-issue_tracker: https://github.com/JioCoders/jio_reactor/issues
+version: 0.0.2
+homepage: https://github.com/JioCoders/jio_reactor_flutter.git
+repository: https://github.com/JioCoders/jio_reactor_flutter.git
+issue_tracker: https://github.com/JioCoders/jio_reactor_flutter/issues
 topics:
   - reactive-widget
+  - state-manager
   - controller
   - reactor
   - rxdart
