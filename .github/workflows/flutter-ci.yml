@@ -181,6 +181,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PUB_DEV_CREDENTIALS }}
 
+  # Publish using the reusable workflow from dart-lang.
   publish:
     permissions:
       id-token: write # Required for authentication using OIDC
