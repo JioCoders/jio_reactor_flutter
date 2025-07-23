@@ -1,3 +1,4 @@
+import 'package:example/src/provider/user_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:jio_reactor/jio_reactor.dart' show Reactive, RexController;
 
@@ -13,9 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const ReactiveCounterView(),
+      home: UserListScreen(),
     );
   }
 }
@@ -30,28 +32,35 @@ class ReactiveCounterView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text('Reactive Counter')),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FloatingActionButton(
+            onPressed: counterController.decrement,
+            child: Icon(Icons.arrow_left_outlined),
+          ),
+          FloatingActionButton(
+            onPressed: counterController.increment,
+            child: Icon(Icons.arrow_right_outlined),
+          ),
+        ],
+      ),
       body: Center(
         // Use `Reactive` widget to rebuild when the counter value changes
-        child: Reactive<int>(
-          stream: counterController.stateStream,
-          builder: (context, counter) {
+        child: Reactive(
+          builder: () {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Counter: $counter', style: TextStyle(fontSize: 40)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: counterController.increment,
-                      child: Text('Increment'),
-                    ),
-                    SizedBox(width: 20),
-                    ElevatedButton(
-                      onPressed: counterController.decrement,
-                      child: Text('Decrement'),
-                    ),
-                  ],
+                Text(
+                  'Counter: ${counterController.state}',
+                  style: TextStyle(fontSize: 40),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Demo app to increase/ decrease \nthe counter value',
+                  style: TextStyle(fontSize: 18),
+                  textAlign: TextAlign.center,
                 ),
               ],
             );
@@ -63,15 +72,26 @@ class ReactiveCounterView extends StatelessWidget {
 }
 
 class CounterController extends RexController<int> {
-  CounterController() : super(0); // Initialize with a counter of 0
+  CounterController() : super(0);
 
-  // Increment the counter value
-  void increment() {
-    updateState(state + 5);
+  void increment() => updateState(state + 1);
+  void decrement() => updateState(state - 1);
+
+  @override
+  void onInit() {
+    super.onInit();
+    debugPrint('CounterController: onInit');
   }
 
-  // Decrement the counter value
-  void decrement() {
-    updateState(state - 5);
+  @override
+  void onReady() {
+    super.onReady();
+    debugPrint('CounterController: onReady');
+  }
+
+  @override
+  void onDispose() {
+    debugPrint('CounterController: onDispose');
+    super.onDispose();
   }
 }
