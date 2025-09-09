@@ -6,6 +6,7 @@ import 'package:example/src/provider/user_detail_screen.dart';
 import 'package:example/src/provider/user_state.dart';
 import 'package:flutter/material.dart';
 
+// ignore: use_key_in_widget_constructors
 class UserListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

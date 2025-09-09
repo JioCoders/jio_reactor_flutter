@@ -1,9 +1,10 @@
+import 'package:example/bloc_test.dart';
 import 'package:example/src/provider/user_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:jio_reactor/jio_reactor.dart' show Reactive, RexController;
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyBlocApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +32,7 @@ class ReactiveCounterView extends StatelessWidget {
     final CounterController counterController = CounterController();
 
     return Scaffold(
-      appBar: AppBar(title: Text('Reactive Counter')),
+      appBar: AppBar(title: Text('Reactive Counterr')),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
